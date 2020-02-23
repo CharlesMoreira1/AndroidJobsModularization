@@ -1,0 +1,14 @@
+apply from: "$rootDir/config.gradle"
+
+dependencies {
+    implementation Libraries.RETROFIT
+    implementation Libraries.CONVERTER_GSON
+
+    implementation Libraries.OK_HTTP
+    implementation Libraries.OK_HTTP_LOGGING_INTERCEPTOR
+
+    debugImplementation Libraries.CHUCK
+    releaseImplementation Libraries.CHUCK_NO_OP
+
+    testImplementation Libraries.JUNIT
+}

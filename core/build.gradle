@@ -1,0 +1,19 @@
+apply from: "$rootDir/config.gradle"
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api Libraries.KOTLIN
+    api Libraries.APP_COMPAT
+    api Libraries.CORE_KTX
+    api Libraries.CONSTRAINT_LAYOUT
+    api Libraries.MATERIAL
+
+    api Libraries.LIFE_CYCLE_EXTENSIONS
+    api Libraries.LIFE_CYCLE_COMMON_JAVA_8
+    api Libraries.LIFE_CYCLE_VIEW_MODEL_KTX
+
+    api Libraries.KOIN_SCOPE
+    api Libraries.KOIN_VIEW_MODEL
+
+    testImplementation Libraries.JUNIT
+}

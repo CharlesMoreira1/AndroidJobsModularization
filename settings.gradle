@@ -1,0 +1,2 @@
+include ':app', ':core', ':feature:home', ':network'
+rootProject.name='android-jobs'

@@ -1,0 +1,10 @@
+apply from: "$rootDir/config.gradle"
+
+dependencies {
+    implementation project(':core')
+    implementation project(':network')
+
+    androidTestImplementation Libraries.TEST_RUNNER
+    androidTestImplementation Libraries.TEST_ESPRESSO
+    testImplementation Libraries.JUNIT
+}

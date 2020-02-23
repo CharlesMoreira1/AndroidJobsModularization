@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply from: 'https://raw.githubusercontent.com/JakeWharton/SdkSearch/master/gradle/projectDependencyGraph.gradle'
+
+
+android {
+    compileSdkVersion Versions.COMPILE_SDK_VERSION
+    buildToolsVersion Versions.BUILD_TOOLS_VERSION
+    defaultConfig {
+        applicationId ApplicationId.ID
+        minSdkVersion Versions.MIN_SDK_VERSION
+        targetSdkVersion Versions.TARGET_SDK_VERSION
+        versionCode Releases.VERSION_CODE
+        versionName Releases.VERSION_NAME
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation project(':core')
+    implementation project(':network')
+    implementation project(':feature:home')
+
+    androidTestImplementation Libraries.TEST_RUNNER
+    androidTestImplementation Libraries.TEST_ESPRESSO
+    testImplementation Libraries.JUNIT
+}
