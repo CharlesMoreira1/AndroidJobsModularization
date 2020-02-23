@@ -14,8 +14,3 @@
 .externalNativeBuild
 .cxx
 *.log
-.externalNativeBuild
-.buildSrc/build
-bin/
-gen/
-out/
