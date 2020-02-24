@@ -8,16 +8,17 @@ import io.objectbox.BoxStore
 
 class HomeRepository(private val apiClient: ApiClient, private val boxStore: BoxStore): BaseRepository() {
 
-    suspend fun getListJobs() : List<Job>?{
+    suspend fun getListJobs(forceRefresh: Boolean) : List<Job>?{
         val boxJob = boxStore.boxFor(Job::class.java)
         return networkBoundResource(
             makeApiCall = {
                apiClient.service(ApiService::class.java).getListJobs().jobs
             },
             shouldFetch = {
-                boxJob.all.isNullOrEmpty()
+                boxJob.all.isNullOrEmpty() || forceRefresh
             },
             saveCallResult = {
+                boxJob.removeAll()
                 boxJob.put(it)
             },
             loadFromDb = {

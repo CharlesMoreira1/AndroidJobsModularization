@@ -3,6 +3,8 @@ package com.androidjobs.core.base
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.androidjobs.core.helper.Resource
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 abstract class BaseViewModel : ViewModel() {
 
@@ -16,5 +18,15 @@ abstract class BaseViewModel : ViewModel() {
 
     protected fun <T> MutableLiveData<Resource<T>>.loading() {
         value = Resource.loading()
+    }
+
+    protected fun <T> CoroutineScope.launchWithCallback(onSuccess: suspend () -> T, onError: (Throwable) -> Unit) {
+        launch {
+            try {
+                onSuccess.invoke()
+            } catch (t: Throwable) {
+                onError.invoke(t)
+            }
+        }
     }
 }

@@ -37,6 +37,7 @@ object Libraries {
     const val TEST_RUNNER = "androidx.test:runner:1.2.0"
     const val TEST_ESPRESSO = "androidx.test.espresso:espresso-core:3.2.0"
     const val MATERIAL = "com.google.android.material:material:1.1.0"
+    const val SWIPE_REFRESH = "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
     const val RETROFIT = "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
     const val CONVERTER_GSON = "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"

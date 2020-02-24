@@ -28,6 +28,7 @@ class HomeAdapter :
     }
 
     fun addList(listPullRequest: List<Job>) {
+        this.listJobs.clear()
         this.listJobs.addAll(listPullRequest)
         notifyDataSetChanged()
     }

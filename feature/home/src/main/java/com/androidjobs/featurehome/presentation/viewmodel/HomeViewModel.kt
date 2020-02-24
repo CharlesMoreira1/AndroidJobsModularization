@@ -7,7 +7,6 @@ import com.androidjobs.core.base.BaseViewModel
 import com.androidjobs.core.helper.Resource
 import com.androidjobs.featurehome.repository.HomeRepository
 import com.androidjobs.network.model.entity.Job
-import kotlinx.coroutines.launch
 
 class HomeViewModel(private val repository: HomeRepository) : BaseViewModel() {
 
@@ -19,15 +18,19 @@ class HomeViewModel(private val repository: HomeRepository) : BaseViewModel() {
 
     fun getListJobs(): LiveData<Resource<List<Job>>> = mutableLiveDataListJobs
 
-    private fun fetchListJobs() {
+    private fun fetchListJobs(forceRefresh: Boolean = false) {
         mutableLiveDataListJobs.loading()
 
-        viewModelScope.launch {
-            try {
-                mutableLiveDataListJobs.success(repository.getListJobs())
-            } catch (t: Throwable){
-                mutableLiveDataListJobs.error(t)
-            }
-        }
+        viewModelScope.launchWithCallback(
+            onSuccess = {
+                mutableLiveDataListJobs.success(repository.getListJobs(forceRefresh))
+            },
+            onError = {
+                mutableLiveDataListJobs.error(it)
+            })
+    }
+
+    fun refreshViewModel() {
+        fetchListJobs(true)
     }
 }

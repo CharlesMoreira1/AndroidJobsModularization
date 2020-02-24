@@ -11,6 +11,10 @@ import com.androidjobs.core.helper.observeResource
 import com.androidjobs.featurehome.presentation.ui.adapter.HomeAdapter
 import com.androidjobs.featurehome.presentation.viewmodel.HomeViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment: Fragment() {
@@ -30,6 +34,7 @@ class HomeFragment: Fragment() {
 
         initViewModel()
         iniUi()
+        swipeRefresh()
     }
 
     private fun initViewModel() {
@@ -49,6 +54,16 @@ class HomeFragment: Fragment() {
             this.adapter = homeAdapter
             val linearLayoutManager = LinearLayoutManager(this@HomeFragment.context)
             this.layoutManager = linearLayoutManager
+        }
+    }
+
+    private fun swipeRefresh() {
+        swipe_refresh.setOnRefreshListener {
+            GlobalScope.launch(context = Dispatchers.Main) {
+                delay(1000)
+                viewModel.refreshViewModel()
+                swipe_refresh.isRefreshing = false
+            }
         }
     }
 }
