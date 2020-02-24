@@ -10,5 +10,8 @@ dependencies {
     debugImplementation Libraries.CHUCK
     releaseImplementation Libraries.CHUCK_NO_OP
 
+    implementation Libraries.KOIN_SCOPE
+    implementation Libraries.KOIN_VIEW_MODEL
+
     testImplementation Libraries.JUNIT
 }

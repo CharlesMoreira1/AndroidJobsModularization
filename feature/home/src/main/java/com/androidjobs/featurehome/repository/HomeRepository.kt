@@ -1,12 +1,28 @@
 package com.androidjobs.featurehome.repository
 
+import com.androidjobs.core.base.BaseRepository
 import com.androidjobs.network.datasource.remote.ApiClient
 import com.androidjobs.network.datasource.remote.api.ApiService
-import com.androidjobs.network.model.entity.AndroidJobsResponse
+import com.androidjobs.network.model.entity.Job
+import io.objectbox.BoxStore
 
-class HomeRepository {
+class HomeRepository(private val apiClient: ApiClient, private val boxStore: BoxStore): BaseRepository() {
 
-    suspend fun getListJobs() : AndroidJobsResponse?{
-        return ApiClient.service<ApiService>().getListJobs()
+    suspend fun getListJobs() : List<Job>?{
+        val boxJob = boxStore.boxFor(Job::class.java)
+        return networkBoundResource(
+            makeApiCall = {
+               apiClient.service(ApiService::class.java).getListJobs().jobs
+            },
+            shouldFetch = {
+                boxJob.all.isNullOrEmpty()
+            },
+            saveCallResult = {
+                boxJob.put(it)
+            },
+            loadFromDb = {
+                boxJob.all
+            }
+        )
     }
 }

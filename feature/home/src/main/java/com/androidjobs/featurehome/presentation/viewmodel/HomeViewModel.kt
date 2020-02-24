@@ -6,18 +6,18 @@ import androidx.lifecycle.viewModelScope
 import com.androidjobs.core.base.BaseViewModel
 import com.androidjobs.core.helper.Resource
 import com.androidjobs.featurehome.repository.HomeRepository
-import com.androidjobs.network.model.entity.AndroidJobsResponse
+import com.androidjobs.network.model.entity.Job
 import kotlinx.coroutines.launch
 
 class HomeViewModel(private val repository: HomeRepository) : BaseViewModel() {
 
-    private val mutableLiveDataListJobs = MutableLiveData<Resource<AndroidJobsResponse>>()
+    private val mutableLiveDataListJobs = MutableLiveData<Resource<List<Job>>>()
 
     init {
         fetchListJobs()
     }
 
-    fun getListJobs(): LiveData<Resource<AndroidJobsResponse>> = mutableLiveDataListJobs
+    fun getListJobs(): LiveData<Resource<List<Job>>> = mutableLiveDataListJobs
 
     private fun fetchListJobs() {
         mutableLiveDataListJobs.loading()

@@ -1,15 +1,17 @@
 package com.androidjobs.network.datasource.remote
 
-import com.androidjobs.network.ApplicationContext
+import android.content.Context
 import com.readystatesoftware.chuck.ChuckInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object ApiClient {
+class ApiClient(context: Context) {
 
-    const val BASE_URL = "http://demo8470178.mockable.io/"
+    companion object {
+        const val BASE_URL = "http://demo8470178.mockable.io/"
+    }
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
@@ -17,10 +19,10 @@ object ApiClient {
 
     private val okHttpClient = OkHttpClient.Builder()
         .addInterceptor(loggingInterceptor)
-        .addInterceptor(ChuckInterceptor(ApplicationContext.instance.getContext()))
+        .addInterceptor(ChuckInterceptor(context))
         .build()
 
-    val getRetrofitInstance: (String) -> Retrofit = { url ->
+    private val getRetrofitInstance: (String) -> Retrofit = { url ->
         Retrofit.Builder()
             .baseUrl(url)
             .addConverterFactory(GsonConverterFactory.create())
@@ -28,7 +30,7 @@ object ApiClient {
             .build()
     }
 
-    inline fun <reified T> service(baseUrl: String = BASE_URL): T {
-        return getRetrofitInstance(baseUrl).create(T::class.java)
+    fun <T> service(entityClass: Class<T>): T {
+        return getRetrofitInstance(BASE_URL).create(entityClass)
     }
 }

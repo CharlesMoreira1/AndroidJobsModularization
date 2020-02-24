@@ -35,7 +35,7 @@ class HomeFragment: Fragment() {
     private fun initViewModel() {
         viewModel.getListJobs().observeResource(viewLifecycleOwner,
             onSuccess = {
-                homeAdapter.addList(it.jobs)
+                homeAdapter.addList(it)
             },
             onError = {
             },

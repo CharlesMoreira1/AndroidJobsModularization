@@ -12,7 +12,7 @@ val loadFeatureHome by lazy {
 }
 
 val repositoryModule = module {
-    single<HomeRepository> { HomeRepository() }
+    single<HomeRepository> { HomeRepository(get(), get()) }
 }
 
 val viewModelModule = module {

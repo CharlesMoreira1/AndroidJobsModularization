@@ -2,7 +2,7 @@ package com.androidjobs
 
 import android.app.Application
 import com.androidjobs.featurehome.di.loadFeatureHome
-import com.androidjobs.network.ApplicationContext
+import com.androidjobs.network.di.loadNetwork
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -20,14 +20,9 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        initMyApplicationsModule()
         startKoin {
             androidContext(this@MyApplication)
-            modules(loadFeatureHome)
+            modules(loadFeatureHome + loadNetwork)
         }
-    }
-
-    private fun initMyApplicationsModule(){
-        ApplicationContext.instance.init(this)
     }
 }
