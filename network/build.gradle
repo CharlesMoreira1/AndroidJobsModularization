@@ -13,5 +13,9 @@ dependencies {
     implementation Libraries.KOIN_SCOPE
     implementation Libraries.KOIN_VIEW_MODEL
 
+    debugImplementation Libraries.OBJECT_BOX_BROWSER
+    releaseImplementation Libraries.OBJECT_BOX_DEBUG
+
     testImplementation Libraries.JUNIT
 }
+apply plugin: 'io.objectbox'

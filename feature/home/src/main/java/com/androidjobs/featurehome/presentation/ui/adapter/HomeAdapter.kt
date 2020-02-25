@@ -27,9 +27,9 @@ class HomeAdapter :
         holder.bindView(dataItem)
     }
 
-    fun addList(listPullRequest: List<Job>) {
+    fun addList(listJobs: List<Job>) {
         this.listJobs.clear()
-        this.listJobs.addAll(listPullRequest)
+        this.listJobs.addAll(listJobs)
         notifyDataSetChanged()
     }
 
