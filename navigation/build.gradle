@@ -1,0 +1,6 @@
+apply from: "$rootDir/config.gradle"
+
+dependencies {
+    implementation Libraries.NAVIGATION_FRAGMENT_KTX
+    implementation Libraries.NAVIGATION_UI_KTX
+}

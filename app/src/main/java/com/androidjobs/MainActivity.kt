@@ -2,15 +2,28 @@ package com.androidjobs
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.androidjobs.core.helper.startFragment
-import com.androidjobs.featurehome.presentation.ui.fragment.HomeFragment
+import androidx.navigation.findNavController
 
 class MainActivity : AppCompatActivity() {
+
+    private val navigator: Navigator by lazy {
+        Navigator()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        supportFragmentManager.startFragment<HomeFragment>(R.id.view_pager)
     }
+
+    override fun onResume() {
+        super.onResume()
+        navigator.bind(findNavController(R.id.nav_host_fragment))
+    }
+
+    override fun onPause() {
+        super.onPause()
+        navigator.unbind()
+    }
+
+    override fun onSupportNavigateUp(): Boolean = findNavController(R.id.nav_host_fragment).navigateUp()
 }

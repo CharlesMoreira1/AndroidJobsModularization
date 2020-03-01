@@ -3,6 +3,7 @@ import Versions.COROUTINES_VERSION
 import Versions.HYPERION_VERSION
 import Versions.KOIN_VERSION
 import Versions.LIFE_CYCLE_VERSION
+import Versions.NAVIGATION_VERSION
 import Versions.OBJECT_BOX_VERSION
 import Versions.OK_HTTP_VERSION
 import Versions.RETROFIT_VERSION
@@ -27,6 +28,7 @@ object Versions {
     const val COROUTINES_VERSION = "1.2.1"
     const val OBJECT_BOX_VERSION = "2.5.1"
     const val LIFE_CYCLE_VERSION = "2.2.0"
+    const val NAVIGATION_VERSION = "2.2.0"
     const val KOIN_VERSION = "2.1.0"
     const val CHUCK_VERSION = "1.1.0"
     const val HYPERION_VERSION = "0.9.27"
@@ -57,6 +59,9 @@ object Libraries {
     const val LIFE_CYCLE_EXTENSIONS = "androidx.lifecycle:lifecycle-extensions:$LIFE_CYCLE_VERSION"
     const val LIFE_CYCLE_COMMON_JAVA_8 = "androidx.lifecycle:lifecycle-common-java8:$LIFE_CYCLE_VERSION"
     const val LIFE_CYCLE_VIEW_MODEL_KTX = "androidx.lifecycle:lifecycle-viewmodel-ktx:$LIFE_CYCLE_VERSION"
+
+    const val NAVIGATION_FRAGMENT_KTX = "androidx.navigation:navigation-fragment-ktx:$NAVIGATION_VERSION"
+    const val NAVIGATION_UI_KTX = "androidx.navigation:navigation-ui-ktx:$NAVIGATION_VERSION"
 
     const val KOIN_SCOPE = "org.koin:koin-androidx-scope:$KOIN_VERSION"
     const val KOIN_VIEW_MODEL = "org.koin:koin-androidx-viewmodel:$KOIN_VERSION"

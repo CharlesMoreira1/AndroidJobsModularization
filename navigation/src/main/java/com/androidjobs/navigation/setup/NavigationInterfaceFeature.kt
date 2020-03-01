@@ -1,0 +1,3 @@
+package com.androidjobs.navigation.setup
+
+interface NavigationInterfaceFeature

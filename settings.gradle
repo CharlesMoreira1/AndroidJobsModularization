@@ -1,2 +1,9 @@
-include ':app', ':core', ':feature:home', ':network'
+include ':app'
+include ':core'
+include ':network'
+include ':navigation'
+include ':feature:home'
+include ':feature:start'
+include ':feature:profile'
 rootProject.name='android-jobs'
+
