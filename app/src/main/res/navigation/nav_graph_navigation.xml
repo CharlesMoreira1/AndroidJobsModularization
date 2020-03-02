@@ -8,16 +8,22 @@
 
     <fragment
         android:id="@+id/startFragment"
+        android:label="Start"
         android:name="com.androidjobs.featurestart.StartFragment"
         tools:layout="@layout/fragment_start">
 
         <action
             android:id="@+id/action_startFragment_to_homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             app:destination="@id/homeFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/homeFragment"
+        android:label="Jobs"
         android:name="com.androidjobs.featurehome.presentation.ui.fragment.HomeFragment"
         tools:layout="@layout/fragment_home" >
     </fragment>
