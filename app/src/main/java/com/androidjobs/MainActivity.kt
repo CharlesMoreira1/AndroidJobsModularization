@@ -14,10 +14,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
 
-    private val navigator: Navigator by lazy {
-        Navigator()
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,16 +27,6 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
 
         setupActionBarWithNavController(navController, appBarConfiguration)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        navigator.bind(navController)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        navigator.unbind()
     }
 
     override fun onSupportNavigateUp(): Boolean = navController.navigateUp(appBarConfiguration)

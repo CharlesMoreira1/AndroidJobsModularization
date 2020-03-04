@@ -5,8 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.androidjobs.navigation.NavigationStartFeature
-import com.androidjobs.navigation.setup.startNavigation
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_start.*
 
 class StartFragment : Fragment() {
@@ -22,7 +21,7 @@ class StartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         button_click.setOnClickListener {
-            startNavigation<NavigationStartFeature>().actionStartFragmentToHomeFragment()
+           findNavController().navigate(R.id.action_startFragment_to_homeFragment)
         }
     }
 }

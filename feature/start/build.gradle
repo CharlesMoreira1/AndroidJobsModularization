@@ -4,7 +4,16 @@ dependencies {
     implementation project(':core')
     implementation project(':navigation')
 
+    implementation Libraries.NAVIGATION_FRAGMENT_KTX
+    implementation Libraries.NAVIGATION_UI_KTX
+
     androidTestImplementation Libraries.TEST_RUNNER
     androidTestImplementation Libraries.TEST_ESPRESSO
+    androidTestImplementation Libraries.TEST_RULES
+    androidTestImplementation Libraries.TEST_EXT_TRUTH
+    androidTestImplementation Libraries.EXT_JUNIT
+    androidTestImplementation Libraries.NAVIGATION_TESTING
+    implementation(Libraries.FRAGMENT_TESTING)
+
     testImplementation Libraries.JUNIT
 }

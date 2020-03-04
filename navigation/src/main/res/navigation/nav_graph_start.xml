@@ -2,29 +2,26 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph_app"
-    app:startDestination="@id/startFragment"
+    android:id="@+id/nav_graph_start"
+    app:startDestination="@id/start_fragment"
     tools:ignore="UnusedNavigation">
 
     <fragment
-        android:id="@+id/startFragment"
+        android:id="@+id/start_fragment"
         android:label="Start"
-        android:name="com.androidjobs.featurestart.StartFragment"
-        tools:layout="@layout/fragment_start">
-
+        android:name="com.androidjobs.featurestart.StartFragment">
         <action
             android:id="@+id/action_startFragment_to_homeFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/home_fragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/home_fragment"
         android:label="Jobs"
-        android:name="com.androidjobs.featurehome.presentation.ui.fragment.HomeFragment"
-        tools:layout="@layout/fragment_home" >
+        android:name="com.androidjobs.featurehome.presentation.ui.fragment.HomeFragment">
     </fragment>
 </navigation>

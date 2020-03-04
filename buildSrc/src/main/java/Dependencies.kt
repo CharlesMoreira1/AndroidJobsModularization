@@ -1,12 +1,17 @@
 import Versions.CHUCK_VERSION
 import Versions.COROUTINES_VERSION
+import Versions.EXT_JUNIT_VERSION
+import Versions.FRAGMENT_TESTING_VERSION
 import Versions.HYPERION_VERSION
+import Versions.JUNIT_VERSION
 import Versions.KOIN_VERSION
 import Versions.LIFE_CYCLE_VERSION
 import Versions.NAVIGATION_VERSION
 import Versions.OBJECT_BOX_VERSION
 import Versions.OK_HTTP_VERSION
 import Versions.RETROFIT_VERSION
+import Versions.TEST_ANDROID_VERSION
+import Versions.TEST_ESPRESSO_VERSION
 
 object ApplicationId {
     const val ID = "com.androidjobs"
@@ -28,10 +33,15 @@ object Versions {
     const val COROUTINES_VERSION = "1.2.1"
     const val OBJECT_BOX_VERSION = "2.5.1"
     const val LIFE_CYCLE_VERSION = "2.2.0"
-    const val NAVIGATION_VERSION = "2.2.0"
+    const val NAVIGATION_VERSION = "2.3.0-alpha02"
     const val KOIN_VERSION = "2.1.0"
     const val CHUCK_VERSION = "1.1.0"
     const val HYPERION_VERSION = "0.9.27"
+    const val TEST_ANDROID_VERSION = "1.2.0"
+    const val TEST_ESPRESSO_VERSION = "3.2.0"
+    const val JUNIT_VERSION = "4.12"
+    const val EXT_JUNIT_VERSION = "1.1.1"
+    const val FRAGMENT_TESTING_VERSION = "1.2.2"
 }
 
 object Libraries {
@@ -39,11 +49,17 @@ object Libraries {
     const val APP_COMPAT = "androidx.appcompat:appcompat:1.1.0"
     const val CORE_KTX = "androidx.core:core-ktx:1.2.0"
     const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:1.1.3"
-    const val JUNIT = "junit:junit:4.12"
-    const val TEST_RUNNER = "androidx.test:runner:1.2.0"
-    const val TEST_ESPRESSO = "androidx.test.espresso:espresso-core:3.2.0"
     const val MATERIAL = "com.google.android.material:material:1.1.0"
     const val SWIPE_REFRESH = "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+
+    const val JUNIT = "junit:junit:$JUNIT_VERSION"
+    const val TEST_RUNNER = "androidx.test:runner:$TEST_ANDROID_VERSION"
+    const val TEST_RULES = "androidx.test:rules:$TEST_ANDROID_VERSION"
+    const val TEST_EXT_TRUTH = "androidx.test.ext:truth:$TEST_ANDROID_VERSION"
+    const val EXT_JUNIT = "androidx.test.ext:junit:$EXT_JUNIT_VERSION"
+    const val TEST_ESPRESSO = "androidx.test.espresso:espresso-core:$TEST_ESPRESSO_VERSION"
+    const val FRAGMENT_TESTING = "androidx.fragment:fragment-testing:$FRAGMENT_TESTING_VERSION"
+    const val NAVIGATION_TESTING = "androidx.navigation:navigation-testing:$NAVIGATION_VERSION"
 
     const val RETROFIT = "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
     const val CONVERTER_GSON = "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
