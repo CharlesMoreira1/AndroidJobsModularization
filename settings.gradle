@@ -1,7 +1,7 @@
 include ':app'
+include ':network'
 include ':librarie:core'
 include ':librarie:ui-helper'
-include ':network'
 include ':feature:home'
 include ':feature:start'
 include ':feature:profile'
