@@ -1,11 +1,8 @@
 apply from: "$rootDir/config.gradle"
 
 dependencies {
-    implementation project(':core')
-    implementation project(':navigation')
-
-    implementation Libraries.NAVIGATION_FRAGMENT_KTX
-    implementation Libraries.NAVIGATION_UI_KTX
+    implementation project(':librarie:core')
+    implementation project(':librarie:ui-helper')
 
     androidTestImplementation Libraries.TEST_RUNNER
     androidTestImplementation Libraries.TEST_ESPRESSO
@@ -13,7 +10,7 @@ dependencies {
     androidTestImplementation Libraries.TEST_EXT_TRUTH
     androidTestImplementation Libraries.EXT_JUNIT
     androidTestImplementation Libraries.NAVIGATION_TESTING
-    implementation(Libraries.FRAGMENT_TESTING)
+    debugImplementation Libraries.FRAGMENT_TESTING
 
     testImplementation Libraries.JUNIT
 }

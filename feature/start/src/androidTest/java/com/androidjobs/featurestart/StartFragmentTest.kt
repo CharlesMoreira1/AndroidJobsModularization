@@ -19,7 +19,7 @@ class StartFragmentTest {
     fun navigateToHomeFragment() {
         val navController = TestNavHostController(
             ApplicationProvider.getApplicationContext()).apply {
-            setGraph(R.navigation.nav_graph_main)
+            setGraph(R.navigation.nav_graph_start)
             setCurrentDestination(R.id.start_fragment)
         }
 

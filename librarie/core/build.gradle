@@ -25,6 +25,4 @@ dependencies {
     debugImplementation Libraries.HYPERION_SHARED_PREFERENCES
     debugImplementation Libraries.HYPERION_TIMBER
     releaseImplementation Libraries.HYPERION_CORE_NO_OP
-
-    testImplementation Libraries.JUNIT
 }

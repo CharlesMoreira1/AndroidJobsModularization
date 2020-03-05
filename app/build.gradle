@@ -32,15 +32,12 @@ android {
 }
 
 dependencies {
-    implementation project(':core')
+    implementation project(':librarie:core')
     implementation project(':network')
-    implementation project(':navigation')
+    implementation project(':librarie:ui-helper')
     implementation project(':feature:home')
     implementation project(':feature:start')
     implementation project(':feature:profile')
-
-    implementation Libraries.NAVIGATION_FRAGMENT_KTX
-    implementation Libraries.NAVIGATION_UI_KTX
 
     androidTestImplementation Libraries.TEST_RUNNER
     androidTestImplementation Libraries.TEST_ESPRESSO
