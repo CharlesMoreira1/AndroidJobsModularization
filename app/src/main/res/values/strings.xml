@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Android Jobs</string>
+    <string name="title_info">Info</string>
 </resources>

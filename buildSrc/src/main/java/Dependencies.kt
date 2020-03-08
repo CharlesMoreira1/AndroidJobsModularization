@@ -78,6 +78,7 @@ object Libraries {
 
     const val NAVIGATION_FRAGMENT_KTX = "androidx.navigation:navigation-fragment-ktx:$NAVIGATION_VERSION"
     const val NAVIGATION_UI_KTX = "androidx.navigation:navigation-ui-ktx:$NAVIGATION_VERSION"
+    const val NAVIGATION_DYNAMIC_FEATURES = "androidx.navigation:navigation-dynamic-features-fragment:$NAVIGATION_VERSION"
 
     const val KOIN_SCOPE = "org.koin:koin-androidx-scope:$KOIN_VERSION"
     const val KOIN_VIEW_MODEL = "org.koin:koin-androidx-viewmodel:$KOIN_VERSION"

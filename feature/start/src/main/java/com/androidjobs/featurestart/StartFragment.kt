@@ -20,8 +20,12 @@ class StartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        button_click.setOnClickListener {
-           findNavController().navigate(R.id.action_startFragment_to_homeFragment)
+        button_click_home.setOnClickListener {
+           findNavController().navigate(R.id.action_start_fragment_to_home_fragment)
+        }
+
+        button_click_info.setOnClickListener {
+            findNavController().navigate(R.id.action_start_fragment_to_info_fragment)
         }
     }
 }

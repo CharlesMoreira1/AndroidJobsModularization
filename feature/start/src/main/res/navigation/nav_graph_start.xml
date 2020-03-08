@@ -11,12 +11,19 @@
         android:label="Start"
         android:name="com.androidjobs.featurestart.StartFragment">
         <action
-            android:id="@+id/action_startFragment_to_homeFragment"
+            android:id="@+id/action_start_fragment_to_home_fragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             app:destination="@id/home_fragment" />
+        <action
+            android:id="@+id/action_start_fragment_to_info_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:destination="@id/info_fragment" />
     </fragment>
 
     <fragment
@@ -24,4 +31,10 @@
         android:label="Jobs"
         android:name="com.androidjobs.featurehome.presentation.ui.fragment.HomeFragment">
     </fragment>
+
+    <fragment
+        android:id="@+id/info_fragment"
+        android:label="Info"
+        app:moduleName="info"
+        android:name="com.androidjobs.info.InfoFragment"/>
 </navigation>

@@ -29,7 +29,7 @@ class StartFragmentTest {
             Navigation.setViewNavController(fragment.requireView(), navController)
         }
 
-        onView(withId(R.id.button_click)).perform(click())
+        onView(withId(R.id.button_click_home)).perform(click())
 
         val backStack = navController.backStack
         val currentDestination = backStack.last()

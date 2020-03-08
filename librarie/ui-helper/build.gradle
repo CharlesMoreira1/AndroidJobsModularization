@@ -3,4 +3,5 @@ apply from: "$rootDir/config.gradle"
 dependencies {
     api Libraries.NAVIGATION_FRAGMENT_KTX
     api Libraries.NAVIGATION_UI_KTX
+    api Libraries.NAVIGATION_DYNAMIC_FEATURES
 }

@@ -5,5 +5,5 @@ include ':librarie:ui-helper'
 include ':feature:home'
 include ':feature:start'
 include ':feature:profile'
+include ':dynamicFeature:info'
 rootProject.name='android-jobs'
-

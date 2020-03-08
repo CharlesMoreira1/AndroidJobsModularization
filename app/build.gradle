@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
     compileSdkVersion Versions.COMPILE_SDK_VERSION
@@ -29,6 +30,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    dynamicFeatures = [":dynamicFeature:info"]
 }
 
 dependencies {
