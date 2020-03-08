@@ -3,6 +3,7 @@
 - Arquitetura MVVM
 - Android X
 - Kotlin
+- Kotlin DSL
 - Retrofit
 - ObjectBox
 - Coroutines
@@ -10,8 +11,9 @@
 - Lifecycle
 - ViewModel
 - Navigation
-- Koin
 - Modularização
+- Dynamic Feature
+- Koin
 
 # Tools
 
