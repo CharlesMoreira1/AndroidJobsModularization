@@ -6,6 +6,7 @@ import Versions.HYPERION_VERSION
 import Versions.JUNIT_VERSION
 import Versions.KOIN_VERSION
 import Versions.LIFE_CYCLE_VERSION
+import Versions.MOCKK_VERSION
 import Versions.NAVIGATION_VERSION
 import Versions.OBJECT_BOX_VERSION
 import Versions.OK_HTTP_VERSION
@@ -41,7 +42,9 @@ object Versions {
     const val TEST_ESPRESSO_VERSION = "3.2.0"
     const val JUNIT_VERSION = "4.12"
     const val EXT_JUNIT_VERSION = "1.1.1"
+    const val MOCKK_VERSION = "1.9"
     const val FRAGMENT_TESTING_VERSION = "1.2.2"
+    const val ARCH_CORE_TESTING_VERSION = "2.1.0"
 }
 
 object Libraries {
@@ -57,9 +60,11 @@ object Libraries {
     const val TEST_RULES = "androidx.test:rules:$TEST_ANDROID_VERSION"
     const val TEST_EXT_TRUTH = "androidx.test.ext:truth:$TEST_ANDROID_VERSION"
     const val EXT_JUNIT = "androidx.test.ext:junit:$EXT_JUNIT_VERSION"
+    const val TEST_MOCKK = "io.mockk:mockk:$MOCKK_VERSION"
     const val TEST_ESPRESSO = "androidx.test.espresso:espresso-core:$TEST_ESPRESSO_VERSION"
     const val FRAGMENT_TESTING = "androidx.fragment:fragment-testing:$FRAGMENT_TESTING_VERSION"
     const val NAVIGATION_TESTING = "androidx.navigation:navigation-testing:$NAVIGATION_VERSION"
+    const val ARCH_CORE_TESTING = "androidx.arch.core:core-testing:${Versions.ARCH_CORE_TESTING_VERSION}"
 
     const val RETROFIT = "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
     const val CONVERTER_GSON = "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
