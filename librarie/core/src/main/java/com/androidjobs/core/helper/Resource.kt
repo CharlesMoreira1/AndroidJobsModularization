@@ -3,23 +3,17 @@ package com.androidjobs.core.helper
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import com.androidjobs.core.helper.Resource.*
 
-data class Resource<out T>(val status: Status, val data: T?, val throwable: Throwable?) {
-
-    enum class Status { SUCCESS, ERROR, LOADING }
+sealed class Resource<T> {
+    data class Success<T>(val data: T?) : Resource<T>()
+    data class Error<T>(val throwable: Throwable?) : Resource<T>()
+    class Loading<T>: Resource<T>()
 
     companion object {
-        fun <T> success(data: T?): Resource<T> {
-            return Resource(Status.SUCCESS, data, null)
-        }
-
-        fun <T> error(throwable: Throwable?): Resource<T> {
-            return Resource(Status.ERROR, null, throwable)
-        }
-
-        fun <T> loading(): Resource<T> {
-            return Resource(Status.LOADING, null,  null)
-        }
+        fun <T> success(data: T?): Resource<T> = Success(data)
+        fun <T> error(throwable: Throwable?): Resource<T> = Error(throwable)
+        fun <T> loading(): Resource<T> = Loading()
     }
 }
 
@@ -30,21 +24,10 @@ fun <T> LiveData<Resource<T>>.observeResource(
     onLoading: () -> Unit) {
 
     observe(owner, Observer { resource ->
-        when (resource.status) {
-            Resource.Status.SUCCESS -> {
-                resource.data?.let {
-                    onSuccess.invoke(it)
-                }
-            }
-            Resource.Status.ERROR -> {
-                resource.throwable?.let {
-                    onError.invoke(it)
-                }
-            }
-            Resource.Status.LOADING -> {
-                onLoading.invoke()
-            }
+        when (resource) {
+            is Success -> resource.data?.let { onSuccess.invoke(it) }
+            is Error -> resource.throwable?.let { onError.invoke(it) }
+            is Loading -> onLoading.invoke()
         }
-
     })
 }
