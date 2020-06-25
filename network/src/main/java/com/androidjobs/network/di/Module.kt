@@ -5,12 +5,6 @@ import com.androidjobs.network.datasource.remote.ApiClient
 import io.objectbox.BoxStore
 import org.koin.dsl.module
 
-val loadNetwork by lazy {
-    listOf(apiClient,
-        setupObjectBox
-    )
-}
-
 val apiClient = module {
     single<ApiClient> { ApiClient(get()) }
 }

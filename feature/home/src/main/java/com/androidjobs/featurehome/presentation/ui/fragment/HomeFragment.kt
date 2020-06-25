@@ -1,6 +1,5 @@
 package com.androidjobs.featurehome.presentation.ui.fragment
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.androidjobs.featurehome.R
 import com.androidjobs.core.helper.observeResource
+import com.androidjobs.featurehome.di.HomeFeatureModule
 import com.androidjobs.featurehome.presentation.ui.adapter.HomeAdapter
 import com.androidjobs.featurehome.presentation.viewmodel.HomeViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -33,6 +33,8 @@ class HomeFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        HomeFeatureModule.inject()
 
         initViewModel()
         iniUi()

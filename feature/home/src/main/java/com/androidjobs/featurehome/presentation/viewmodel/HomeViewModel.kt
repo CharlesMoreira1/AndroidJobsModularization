@@ -18,12 +18,12 @@ class HomeViewModel(private val repository: HomeRepository) : BaseViewModel() {
 
     fun getListJobs(): LiveData<Resource<List<Job>>> = mutableLiveDataListJobs
 
-    private fun fetchListJobs(forceRefresh: Boolean = false) {
+    private fun fetchListJobs() {
         mutableLiveDataListJobs.loading()
 
         viewModelScope.launchWithCallback(
             onSuccess = {
-                mutableLiveDataListJobs.success(repository.getListJobs(forceRefresh))
+                mutableLiveDataListJobs.success(repository.getListJobs())
             },
             onError = {
                 mutableLiveDataListJobs.error(it)
@@ -31,6 +31,6 @@ class HomeViewModel(private val repository: HomeRepository) : BaseViewModel() {
     }
 
     fun refreshViewModel() {
-        fetchListJobs(true)
+        fetchListJobs()
     }
 }
