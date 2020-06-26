@@ -1,11 +1,13 @@
 package com.androidjobs.featurehome.presentation.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.androidjobs.featurehome.R
 import com.androidjobs.core.helper.observeResource
@@ -27,6 +29,8 @@ class HomeFragment: Fragment() {
         HomeAdapter()
     }
 
+    private val args: HomeFragmentArgs by navArgs()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
@@ -35,6 +39,8 @@ class HomeFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         HomeFeatureModule.inject()
+
+        Log.i("TAG",  args.value)
 
         initViewModel()
         iniUi()

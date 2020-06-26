@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph_start"
-    app:startDestination="@id/start_fragment"
-    tools:ignore="UnusedNavigation">
+    android:id="@+id/nav_graph_ui"
+    app:startDestination="@id/start_fragment">
 
     <fragment
         android:id="@+id/start_fragment"
@@ -30,6 +28,9 @@
         android:id="@+id/home_fragment"
         android:label="Jobs"
         android:name="com.androidjobs.featurehome.presentation.ui.fragment.HomeFragment">
+        <argument
+            android:name="value"
+            app:argType="string" />
     </fragment>
 
     <fragment

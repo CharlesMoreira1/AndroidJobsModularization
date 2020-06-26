@@ -2,6 +2,8 @@ apply from: "$rootDir/config.gradle"
 
 dependencies {
     implementation project(':librarie:core')
+    implementation project(':librarie:navigation')
+
     implementation project(':network')
 
     implementation Libraries.SWIPE_REFRESH

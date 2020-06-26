@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.androidjobs.navigateWithAnimations
 import kotlinx.android.synthetic.main.fragment_start.*
 
 class StartFragment : Fragment() {
@@ -21,11 +22,12 @@ class StartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         button_click_home.setOnClickListener {
-           findNavController().navigate(R.id.action_start_fragment_to_home_fragment)
+            val navDirections = StartFragmentDirections.actionStartFragmentToHomeFragment("Teste")
+           findNavController().navigateWithAnimations(navDirections)
         }
 
         button_click_info.setOnClickListener {
-            findNavController().navigate(R.id.action_start_fragment_to_info_fragment)
+            findNavController().navigateWithAnimations(R.id.action_start_fragment_to_info_fragment)
         }
     }
 }

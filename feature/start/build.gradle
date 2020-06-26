@@ -2,7 +2,7 @@ apply from: "$rootDir/config.gradle"
 
 dependencies {
     implementation project(':librarie:core')
-    implementation project(':librarie:ui-helper')
+    implementation project(':librarie:navigation')
 
     androidTestImplementation Libraries.TEST_RUNNER
     androidTestImplementation Libraries.TEST_ESPRESSO
